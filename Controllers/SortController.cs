@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using sort_api.Models;
+using sort_api.Services;
 
 namespace sort_api.Controllers{
 
@@ -9,8 +11,10 @@ namespace sort_api.Controllers{
     [ApiController]
     public class SortFileController : ControllerBase{
 
+        private readonly ISortingService _sorter = new SortingService();
+
         //GET /api/sort
-        [HttpGet]
+        [HttpGet(Name="GetSortedFile")]
         public ActionResult<string> GetSortedFile(){
 
 
@@ -18,13 +22,17 @@ namespace sort_api.Controllers{
         }
 
         //POST api/sort
-        [HttpPost]
-        public ActionResult<string> SortFile(List<int> numArrayData){
+        [HttpPut]
+        public IActionResult SortFile(NumArrayData numArrayData){
 
+            var result =_sorter.Sort(numArrayData);
+            if (result){
+                return CreatedAtRoute(nameof(GetSortedFile), numArrayData );
+            }
+            else{
+                return StatusCode(500, "Could not sort.");
+            }
 
-            numArrayData.Sort();
-
-            return Ok("SortFile Post - " + string.Join(",", numArrayData) );
         }
 
     }
