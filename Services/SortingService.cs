@@ -6,6 +6,8 @@ using sort_api.Models;
 
 namespace sort_api.Services{
     public class SortingService : ISortingService{
+        //Implementation of a sorter that uses
+        //QuickSort
 
         public NumArrayData GetSorted()
         {
@@ -15,6 +17,8 @@ namespace sort_api.Services{
         public bool Sort(NumArrayData numArrayData){
 
             try{
+                // Could be just:
+                // numArrayData.Array.Sort();
                 Quick_Sort(numArrayData.Array, 0, numArrayData.Array.Count-1);
 
                 return true;

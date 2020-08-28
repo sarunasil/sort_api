@@ -10,6 +10,8 @@ namespace sort_api.Controllers{
     [Route("api/sort")]
     [ApiController]
     public class SortFileController : ControllerBase{
+        //The controller responsible for taking in
+        //array input and returning sorted result
 
         private readonly ISortingService _sorter = new SortingService();
 
