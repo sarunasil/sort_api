@@ -2,9 +2,9 @@
 using System;
 using System.IO;
 using System.Text.Json;
-using sort_api.Models;
+using SortApi.Models;
 
-namespace sort_api.Repository{
+namespace SortApi.Repository{
     public class NumArrayDataFileRepo : IArrayDataRepo
     {
         //Implementation of a class that saves

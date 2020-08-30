@@ -3,12 +3,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using sort_api.DTOs;
-using sort_api.Models;
-using sort_api.Repository;
-using sort_api.Services;
+using SortApi.DTOs;
+using SortApi.Models;
+using SortApi.Repository;
+using SortApi.Services;
 
-namespace sort_api.Controllers{
+namespace SortApi.Controllers{
 
     [Route("api/sort")]
     [ApiController]

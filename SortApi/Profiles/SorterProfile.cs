@@ -1,9 +1,9 @@
 
 using AutoMapper;
-using sort_api.DTOs;
-using sort_api.Models;
+using SortApi.DTOs;
+using SortApi.Models;
 
-namespace sort_api.Profiles{
+namespace SortApi.Profiles{
     public class SorterProfile : Profile{
 
         public SorterProfile(){

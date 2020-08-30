@@ -1,7 +1,7 @@
 
-using sort_api.Models;
+using SortApi.Models;
 
-namespace sort_api.Repository{
+namespace SortApi.Repository{
     public interface IArrayDataRepo{
         //Interface for storing NumArrayData
         //read/write

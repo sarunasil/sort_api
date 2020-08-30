@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace sort_api.Models{
+namespace SortApi.Models{
     public class NumArrayData : IValidatableObject{
         //Overcomplicated data class to store
         //the array that's to be sorted

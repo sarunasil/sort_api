@@ -10,11 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using sort_api.Repository;
-using sort_api.Services;
+using SortApi.Repository;
+using SortApi.Services;
 using AutoMapper;
 
-namespace sort_api
+namespace SortApi
 {
     public class Startup
     {

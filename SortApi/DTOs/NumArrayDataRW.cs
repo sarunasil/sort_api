@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace sort_api.DTOs{
+namespace SortApi.DTOs{
     public class NumArrayDataRW {
         //Overcomplicated Data Type Object to
         //Read / Write NumArrayData objects

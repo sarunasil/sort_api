@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using sort_api.Models;
-using sort_api.Repository;
+using SortApi.Models;
+using SortApi.Repository;
 
-namespace sort_api.Services{
+namespace SortApi.Services{
     public class QuickSortingService : ISortingService{
 
         //Implementation of a sorter that uses

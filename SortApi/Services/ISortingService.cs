@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using sort_api.Models;
+using SortApi.Models;
 
-namespace sort_api.Services
+namespace SortApi.Services
 {
     public interface ISortingService
     {
