@@ -5,14 +5,23 @@
    "version": "0.2.0",
    "configurations": [
         {
+            "name": ".NET Core (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Tests/bin/Debug/netcoreapp3.1/Test.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Tests",
+            "stopAtEntry": false,
+        },
+        {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/SortApi.dll",
+            "program": "${workspaceFolder}/Test/bin/Debug/netcoreapp3.1/Test.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/SortApi",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
