@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using sort_api.DTOs;
 using sort_api.Models;
 using sort_api.Repository;
 using sort_api.Services;
@@ -15,29 +17,36 @@ namespace sort_api.Controllers{
         //array input and returning sorted result
 
         private readonly ISortingService _sorter;
+        private readonly IMapper _mapper;
 
-        public SortFileController(ISortingService sorter){
+        public SortFileController(ISortingService sorter, IMapper mapper){
             _sorter = sorter;
+            _mapper = mapper;
         }
 
         //GET /api/sort
         [HttpGet(Name="GetSortedFile")]
-        public ActionResult<string> GetSortedFile(){
+        public IActionResult GetSortedFile(){
 
-            var sorted = _sorter.GetSorted();
+            NumArrayData sorted = _sorter.GetSorted();
             if (sorted == null){
                 return StatusCode(500, "Could not get sorted.");
             }
-            return Ok(sorted);
+
+            NumArrayDataRW numArrayDataR = _mapper.Map<NumArrayData, NumArrayDataRW>(sorted);
+            return Ok(numArrayDataR);
         }
 
-        //POST api/sort
+        //PUT(POST) api/sort
         [HttpPut]
-        public IActionResult SortFile(NumArrayData numArrayData){
+        public IActionResult SortFile(NumArrayDataRW numArrayDataW){
+            NumArrayData numArrayData = _mapper.Map<NumArrayDataRW, NumArrayData>(numArrayDataW);
 
             var result =_sorter.Sort(numArrayData);
             if (result){
-                return CreatedAtRoute(nameof(GetSortedFile), numArrayData );
+
+                var numArrayDataR = _mapper.Map<NumArrayData, NumArrayDataRW>(numArrayData);
+                return Created(nameof(GetSortedFile), numArrayDataR);
             }
             else{
                 return StatusCode(500, "Could not sort.");

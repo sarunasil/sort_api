@@ -17,7 +17,7 @@ namespace sort_api.Models{
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             foreach (int el in Array){
-                if (!(MIN_LIMIT < el && el <= MAX_LIMIT)){
+                if (!(MIN_LIMIT <= el && el <= MAX_LIMIT)){
                     yield return new ValidationResult($"All entered numbers must be between {MIN_LIMIT} and {MAX_LIMIT}(incl).");
                 }
             }

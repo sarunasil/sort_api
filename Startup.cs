@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using sort_api.Repository;
 using sort_api.Services;
+using AutoMapper;
 
 namespace sort_api
 {
@@ -28,6 +29,8 @@ namespace sort_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<ISortingService, QuickSortingService>();
             services.AddScoped<IArrayDataRepo, NumArrayDataFileRepo>();
