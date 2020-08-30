@@ -7,10 +7,15 @@ using sort_api.Repository;
 
 namespace sort_api.Services{
     public class QuickSortingService : ISortingService{
+
         //Implementation of a sorter that uses
         //QuickSort
 
-        private readonly IArrayDataRepo _fileRepo = new NumArrayDataFileRepo();
+        private readonly IArrayDataRepo _fileRepo;
+
+        public QuickSortingService(IArrayDataRepo repo){
+            _fileRepo = repo;
+        }
 
         public NumArrayData GetSorted()
         {

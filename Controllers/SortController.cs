@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using sort_api.Models;
+using sort_api.Repository;
 using sort_api.Services;
 
 namespace sort_api.Controllers{
@@ -13,7 +14,11 @@ namespace sort_api.Controllers{
         //The controller responsible for taking in
         //array input and returning sorted result
 
-        private readonly ISortingService _sorter = new QuickSortingService();
+        private readonly ISortingService _sorter;
+
+        public SortFileController(ISortingService sorter){
+            _sorter = sorter;
+        }
 
         //GET /api/sort
         [HttpGet(Name="GetSortedFile")]
@@ -21,7 +26,7 @@ namespace sort_api.Controllers{
 
             var sorted = _sorter.GetSorted();
             if (sorted == null){
-                return StatusCode(500, "Could not get sorted");
+                return StatusCode(500, "Could not get sorted.");
             }
             return Ok(sorted);
         }

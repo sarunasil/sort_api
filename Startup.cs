@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using sort_api.Repository;
+using sort_api.Services;
 
 namespace sort_api
 {
@@ -26,6 +28,9 @@ namespace sort_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<ISortingService, QuickSortingService>();
+            services.AddScoped<IArrayDataRepo, NumArrayDataFileRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
