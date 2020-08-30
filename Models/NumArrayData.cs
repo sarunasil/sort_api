@@ -1,4 +1,5 @@
 
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -11,7 +12,6 @@ namespace sort_api.Models{
         [Required]
         [MaxLength(MAX_SIZE)]
         public List<int> Array { get; set; } = new List<int>{1,2,3};
-
 
     }
 

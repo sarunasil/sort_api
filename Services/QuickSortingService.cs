@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using sort_api.Models;
+using sort_api.Repository;
 
 namespace sort_api.Services{
-    public class SortingService : ISortingService{
+    public class QuickSortingService : ISortingService{
         //Implementation of a sorter that uses
         //QuickSort
+
+        private readonly IArrayDataRepo _fileRepo = new NumArrayDataFileRepo();
 
         public NumArrayData GetSorted()
         {
@@ -21,6 +24,11 @@ namespace sort_api.Services{
                 // numArrayData.Array.Sort();
                 Quick_Sort(numArrayData.Array, 0, numArrayData.Array.Count-1);
 
+                var res = _fileRepo.SaveSorted(numArrayData);
+
+                if (!res){
+                    throw new System.Exception("Could not save to file");
+                }
                 return true;
             }
             catch{

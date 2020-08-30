@@ -13,7 +13,7 @@ namespace sort_api.Controllers{
         //The controller responsible for taking in
         //array input and returning sorted result
 
-        private readonly ISortingService _sorter = new SortingService();
+        private readonly ISortingService _sorter = new QuickSortingService();
 
         //GET /api/sort
         [HttpGet(Name="GetSortedFile")]
