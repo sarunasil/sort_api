@@ -61,9 +61,9 @@ namespace sort_api.Services{
         }
 
         private static int Partition(List<int> arr, int left, int right){
+
             int marker = arr[left];
             while (true){
-
                 while (arr[left] < marker){
                     left++;
                 }
@@ -76,11 +76,9 @@ namespace sort_api.Services{
                     if (arr[left] == arr[right]){
                         return right;
                     }
-
                     int temp = arr[left];
                     arr[left] = arr[right];
                     arr[right] = temp;
-
                 }
                 else {
                     return right;
