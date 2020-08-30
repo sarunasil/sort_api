@@ -7,7 +7,7 @@ using Xunit;
 namespace sort_api.Tests{
     public class NumArrayDataTestStub : IEnumerable<object[]>
     {
-        // Multiple test cases for sorting
+        // Multiple test cases for sorting and getting(cause I'm lazy)
         public IEnumerator<object[]> GetEnumerator()
         {
             yield return new object[]{

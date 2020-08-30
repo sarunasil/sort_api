@@ -5,6 +5,7 @@ using SortApi.Models;
 
 namespace SortApi.Profiles{
     public class SorterProfile : Profile{
+        //Only to store AutoMApper configs
 
         public SorterProfile(){
             //Internal -> external (for reading)

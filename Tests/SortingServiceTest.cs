@@ -15,7 +15,7 @@ namespace sort_api.Tests{
         //could have been designed but it's such a simple app
         //I couldn't justify the trouble
         //Obv, in a more realistic app, it wouldn't have been left in such a way
-        private readonly IArrayDataRepo _repo;
+        private readonly IArrayDataRepo _repo; //could use a mock repo/stub
         private readonly ISortingService _sorter;
 
         public SortingServiceTest(){
