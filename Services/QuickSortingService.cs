@@ -14,7 +14,12 @@ namespace sort_api.Services{
 
         public NumArrayData GetSorted()
         {
-            throw new System.NotImplementedException();
+            try{
+                return _fileRepo.GetSorted();
+            }
+            catch{
+                return null;
+            }
         }
 
         public bool Sort(NumArrayData numArrayData){

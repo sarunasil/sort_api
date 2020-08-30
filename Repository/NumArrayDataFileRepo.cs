@@ -13,7 +13,16 @@ namespace sort_api.Repository{
         const string SAVE_FILE = "./save_file.json";
         public NumArrayData GetSorted()
         {
-            throw new System.NotImplementedException();
+            try{
+                string jsonString = File.ReadAllText(SAVE_FILE);
+
+                NumArrayData numArrayData = JsonSerializer.Deserialize<NumArrayData>(jsonString);
+
+                return numArrayData;
+            }
+            catch{
+                throw new Exception("Could read the saved file.");
+            }
         }
 
         public bool SaveSorted(NumArrayData numArrayData)
@@ -21,8 +30,6 @@ namespace sort_api.Repository{
 
             try{
                 string jsonString = JsonSerializer.Serialize(numArrayData);
-
-                Console.Write(jsonString);
 
                 File.WriteAllText(SAVE_FILE, jsonString);
                 return true;

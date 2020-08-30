@@ -19,8 +19,11 @@ namespace sort_api.Controllers{
         [HttpGet(Name="GetSortedFile")]
         public ActionResult<string> GetSortedFile(){
 
-
-            return Ok("GetSortFile");
+            var sorted = _sorter.GetSorted();
+            if (sorted == null){
+                return StatusCode(500, "Could not get sorted");
+            }
+            return Ok(sorted);
         }
 
         //POST api/sort
